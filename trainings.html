@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Management - School Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-buttons">
+            <a href="main.html" class="nav-buttons-link">Home</a>
+            <a href="lessons.html" class="nav-buttons-link">Lessons</a>
+            
+            <div class="dropdown">
+                <a href="#" class="nav-buttons-link dropbtn">Staff ▼</a>
+                <div class="dropdown-content">
+                    <a href="teachers.html">Teachers</a>
+                    <a href="admin.html">Admin</a>
+                </div>
+            </div>
+
+            <a href="fields.html" class="nav-buttons-link">Fields</a>
+            <a href="trainings.html" class="nav-buttons-link active">Trainings</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Training Management</h1>
+        
+        <!-- Training toevoegen sectie -->
+        <section class="training-section">
+            <h2>Nieuwe Training Toevoegen</h2>
+            <form class="training-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="trainingName">Training Naam:</label>
+                    <input type="text" id="trainingName" name="trainingName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="trainingDate">Datum:</label>
+                    <input type="date" id="trainingDate" name="trainingDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="trainingTime">Tijd:</label>
+                    <input type="time" id="trainingTime" name="trainingTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="trainingField">Veld:</label>
+                    <select id="trainingField" name="trainingField" required>
+                        <option value="">Selecteer veld</option>
+                        <option value="Veld 1">Veld 1</option>
+                        <option value="Veld 2">Veld 2</option>
+                        <option value="Veld 3">Veld 3</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="maxParticipants">Max Deelnemers:</label>
+                    <input type="number" id="maxParticipants" name="maxParticipants" min="1" max="20" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Training Toevoegen</button>
+            </form>
+        </section>
+
+        <!-- Trainingen overzicht met statische data -->
+        <section class="training-section">
+            <h2>Geplande Trainingen</h2>
+            <div class="trainings-container">
+                
+                <!-- Training 1 -->
+                <div class="training-card">
+                    <h3>Tennis Beginner Training</h3>
+                    <p><strong>Datum:</strong> 20 september 2025</p>
+                    <p><strong>Tijd:</strong> 10:00</p>
+                    <p><strong>Veld:</strong> Veld 1</p>
+                    <p><strong>Deelnemers:</strong> 3/8 (5 plekken beschikbaar)</p>
+                    
+                    <div class="training-actions">
+                        <details class="enrollment-details">
+                            <summary class="btn-secondary">Inschrijvingen Beheren</summary>
+                            <div class="enrollment-content">
+                                <h4>Beschikbare leden:</h4>
+                                <form class="enrollment-form">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="member1" name="enrollment" value="member1">
+                                        <label for="member1">Jan de Vries</label>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="member2" name="enrollment" value="member2">
+                                        <label for="member2">Marie Janssen</label>
+                                    </div>
+                                    <button type="submit" class="btn-primary btn-small">Wijzigingen Opslaan</button>
+                                </form>
+                            </div>
+                        </details>
+                        
+                        <details class="attendance-details">
+                            <summary class="btn-secondary">Aanwezigheid Bijhouden</summary>
+                            <div class="attendance-content">
+                                <h4>Ingeschreven leden:</h4>
+                                <form class="attendance-form">
+                                    <div class="attendance-item">
+                                        <span>Piet Bakker</span>
+                                        <div class="attendance-buttons">
+                                            <input type="radio" id="piet-present" name="piet-attendance" value="present">
+                                            <label for="piet-present" class="btn-small btn-success">Aanwezig</label>
+                                            <input type="radio" id="piet-absent" name="piet-attendance" value="absent">
+                                            <label for="piet-absent" class="btn-small btn-danger">Afwezig</label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn-primary btn-small">Aanwezigheid Opslaan</button>
+                                </form>
+                            </div>
+                        </details>
+                    </div>
+                    
+                    <div class="enrolled-members">
+                        <h4>Ingeschreven leden:</h4>
+                        <ul class="enrolled-list">
+                            <li>Piet Bakker - ✅ Aanwezig</li>
+                            <li>Lisa de Jong - ❓ Onbekend</li>
+                            <li>Tom van der Berg - ❌ Afwezig</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Training 2 -->
+                <div class="training-card">
+                    <h3>Tennis Gevorderd Training</h3>
+                    <p><strong>Datum:</strong> 22 september 2025</p>
+                    <p><strong>Tijd:</strong> 14:00</p>
+                    <p><strong>Veld:</strong> Veld 2</p>
+                    <p><strong>Deelnemers:</strong> 6/10 (4 plekken beschikbaar)</p>
+                    
+                    <div class="training-actions">
+                        <details class="enrollment-details">
+                            <summary class="btn-secondary">Inschrijvingen Beheren</summary>
+                            <div class="enrollment-content">
+                                <h4>Beschikbare leden:</h4>
+                                <form class="enrollment-form">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="member3" name="enrollment" value="member3">
+                                        <label for="member3">Anna Smit</label>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="member4" name="enrollment" value="member4">
+                                        <label for="member4">Rick Jansen</label>
+                                    </div>
+                                    <button type="submit" class="btn-primary btn-small">Wijzigingen Opslaan</button>
+                                </form>
+                            </div>
+                        </details>
+                        
+                        <details class="attendance-details">
+                            <summary class="btn-secondary">Aanwezigheid Bijhouden</summary>
+                            <div class="attendance-content">
+                                <h4>Ingeschreven leden:</h4>
+                                <form class="attendance-form">
+                                    <div class="attendance-item">
+                                        <span>Jan de Vries</span>
+                                        <div class="attendance-buttons">
+                                            <input type="radio" id="jan-present" name="jan-attendance" value="present">
+                                            <label for="jan-present" class="btn-small btn-success">Aanwezig</label>
+                                            <input type="radio" id="jan-absent" name="jan-attendance" value="absent">
+                                            <label for="jan-absent" class="btn-small btn-danger">Afwezig</label>
+                                        </div>
+                                    </div>
+                                    <div class="attendance-item">
+                                        <span>Marie Janssen</span>
+                                        <div class="attendance-buttons">
+                                            <input type="radio" id="marie-present" name="marie-attendance" value="present">
+                                            <label for="marie-present" class="btn-small btn-success">Aanwezig</label>
+                                            <input type="radio" id="marie-absent" name="marie-attendance" value="absent">
+                                            <label for="marie-absent" class="btn-small btn-danger">Afwezig</label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn-primary btn-small">Aanwezigheid Opslaan</button>
+                                </form>
+                            </div>
+                        </details>
+                    </div>
+                    
+                    <div class="enrolled-members">
+                        <h4>Ingeschreven leden:</h4>
+                        <ul class="enrolled-list">
+                            <li>Jan de Vries - ✅ Aanwezig</li>
+                            <li>Marie Janssen - ✅ Aanwezig</li>
+                            <li>Eva Peters - ❓ Onbekend</li>
+                            <li>Mark de Wit - ❓ Onbekend</li>
+                            <li>Sarah Klaas - ❌ Afwezig</li>
+                            <li>David Boom - ✅ Aanwezig</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leden beheer -->
+        <section class="training-section">
+            <h2>Leden Beheer</h2>
+            <div class="members-container">
+                <h3>Nieuwe Lid Toevoegen</h3>
+                <form class="member-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="memberName">Naam:</label>
+                        <input type="text" id="memberName" name="memberName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberEmail">Email:</label>
+                        <input type="email" id="memberEmail" name="memberEmail" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Lid Toevoegen</button>
+                </form>
+                
+                <h3>Geregistreerde Leden</h3>
+                <div class="members-list">
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <h4>Jan de Vries</h4>
+                            <p>jan@example.com</p>
+                            <button class="btn-danger btn-small">Verwijderen</button>
+                        </div>
+                        <div class="member-card">
+                            <h4>Marie Janssen</h4>
+                            <p>marie@example.com</p>
+                            <button class="btn-danger btn-small">Verwijderen</button>
+                        </div>
+                        <div class="member-card">
+                            <h4>Piet Bakker</h4>
+                            <p>piet@example.com</p>
+                            <button class="btn-danger btn-small">Verwijderen</button>
+                        </div>
+                        <div class="member-card">
+                            <h4>Lisa de Jong</h4>
+                            <p>lisa@example.com</p>
+                            <button class="btn-danger btn-small">Verwijderen</button>
+                        </div>
+                        <div class="member-card">
+                            <h4>Tom van der Berg</h4>
+                            <p>tom@example.com</p>
+                            <button class="btn-danger btn-small">Verwijderen</button>
+                        </div>
+                        <div class="member-card">
+                            <h4>Eva Peters</h4>
+                            <p>eva@example.com</p>
+                            <button class="btn-danger btn-small">Verwijderen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
