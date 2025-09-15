@@ -1,0 +1,74 @@
+/* Body and main layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #0cf518;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+/* Navigation buttons */
+.nav-buttons .nav-buttons-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    background: #00ff22;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s;
+    margin: 0 5px; /* small gap between buttons */
+}
+
+.nav-buttons .nav-buttons-link:hover {
+    background: #00cc1a;
+}
+
+/* Dropdown container */
+.nav-buttons .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #c3ec08;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 100%; /* matches parent button width */
+    top: 100%;
+    left: 0;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #b5db07;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
