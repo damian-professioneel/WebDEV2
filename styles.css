@@ -33,6 +33,14 @@ main {
     margin: 0 5px; /* small gap between buttons */
 }
 
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: #0cf518;
+}
+
 .nav-buttons .nav-buttons-link:hover {
     background: #00cc1a;
 }
@@ -77,6 +85,20 @@ main {
 .nav-buttons .nav-buttons-link.active {
     background: #00aa15;
     font-weight: bold;
+}
+
+#logoutbtn {
+    margin-left: auto;
+    background-color: rgba(0, 101, 14, 0.3);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#logoutbtn:hover {
+    background-color: #00aa15;
 }
 
 /* Training Management Styles */
