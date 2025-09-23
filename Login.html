@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <form class="login-container">
+    <form class="login-container" action="main.html">
         <h2>Login</h2>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
@@ -16,21 +16,6 @@
         <button type="submit" id="loginKnop">Login</button>
     </form>
     <script>
-        document.getElementById("loginKnop").addEventListener("click", () => 
-        {
-            event.preventDefault();
-
-            const user = document.getElementById("username");
-            const password = document.getElementById("password");
-
-        if (user !== "" && password !== ""){
-            window.location.href = "main.html";
-        }
-        else {
-            alert("Vul zowel Gebruiksnaam als wachtwoord in.")
-        }
-        })
-        
         
     </script>
 </body>
