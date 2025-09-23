@@ -3,10 +3,10 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    const page = button.getAttribute("data-page");
 
-    window.location.href = page;
+    button.parentElement.remove();
+    button.parentElement.remove();
   });
 });
 
-//loopt over de page en pakt de geselecteerde pagina, hoefde ni persee kan ook de info van de knop opslaan en naar de zelfde page brengen.
+//loopt over de page en pakt de geselecteerde pagina, hoefde ni persee kan ook de info van de knop opslaan en naar de zelfde page brengen....
