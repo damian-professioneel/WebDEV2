@@ -5,7 +5,7 @@ buttons.forEach(button => {
   button.addEventListener("click", () => {
 
     button.parentElement.remove();
-    button.parentElement.remove();
+
   });
 });
 
