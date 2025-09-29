@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
   <nav class="navbar">
     <div class="navbar__container">
@@ -20,22 +22,29 @@
       </div>
       <ul class="navbar__menu">
         <li class="navbar__item">
-          <a href="/" class="navbar__links">Home</a>
+          <a href="indextest.html" class="navbar__links">Home</a>
         </li>
         <li class="navbar__item">
           <a href="trainings.html" class="navbar__links">Trainings</a>
         </li>
         <li class="navbar__item">
+          <a href="teachers.html" class="navbar__links">Teachers</a>
+        </li>
+        <li class="navbar__item">
+          <a href="fields.html" class="navbar__links">Fields</a>
+        </li>
+        <li class="navbar__item">
           <a href="lessons.html" class="navbar__links">Lessons</a>
         </li>
         <li class="navbar__btn">
-          <a href="Login.html" class="button">Sign Up</a>
+          <a href="Login.html" class="button" id = "signUp">Sign Up</a>
         </li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+
+  <!-- main tekst -->
    <div class="main">
     <div class="main__container">
       <div class="main__content">
@@ -49,6 +58,24 @@
       </div>
     </div>
    </div>
+
+
+<!-- 2e sectie-->
+  <div class="sport">
+    <h1>about us</h1>
+    <div class="sport__container">
+      <div class="sport__card" onclick="goToPageTennis()">
+        <h2>Tennis</h2>
+        <p>Klik voor meer informatie</p>
+      </div>
+      <div class="sport__card" onclick="goToPagePadel()">
+        <h2>Padel</h2>
+        <p>Klik voor meer informatie</p>
+      </div>
+    </div>
+  </div>
   <script src="app.js"></script>
+
+
 </body>
 </html>

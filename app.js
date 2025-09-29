@@ -6,3 +6,11 @@ menu.addEventListener('click', function() {
     
     menuLinks.classList.toggle('active');
 });
+
+function goToPagePadel() {
+    window.location.href = "teachers.html";
+}
+
+function goToPageTennis(){
+    window.location.href = "teachers.html";
+}

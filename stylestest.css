@@ -6,7 +6,7 @@
 }
 
 .navbar{
-    background: #131313;
+    background: green;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@
 }
 
 .navbar__links { 
-    color: white;
+    color: #FAFAFA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,12 +87,12 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background-color: #f77062;
+    background-color: #0c360f;
     color: white;
 }
 
 .button:hover {
-    background: grey;
+    background: #26ab2d;
     transition: all 0.3s ease;
 }
 
@@ -124,13 +124,13 @@
         transition: all 0.5s ease;
         height: 50vh;
         z-index: -1;
-        background: black;
+        background: #0cf518;
     }
 
     .navbar__menu.active {
-        background: #131313;
+        background: #0e7a34;
         top: 80px;
-        opacity: 1;
+        opacity: 10;
         transition: all 0.5s ease;
         z-index: 99;
         height: 50vh;
@@ -146,7 +146,7 @@
         height: 3px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
-        background-color: red;
+        background-color: rgb(127, 127, 127);
     }
 
     .navbar__item {
@@ -199,7 +199,7 @@
 }
 
 .main {
-    background: #141414;
+    background: #FAFAFA;
 }
 
 .main__container {
@@ -208,8 +208,8 @@
     align-items: center;
     justify-self: center;
     margin: 0 auto;
-    height: 90vh;
-    background-color: #141414; 
+    height: 65vh;
+    background-color: #FAFAFA; 
     z-index: 1;
     width: 100%;
     max-width: 1300px;
@@ -218,8 +218,8 @@
 
 .main__content h1 {
     font-size: 4rem;
-    background-color: green;
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-color: #212121;
+    background-image: linear-gradient(to top,#5e5c5a 0%,#000000 100%);
     background-size: 100%;
     -webkit-background-clip:text ;
     -moz-background-clip: text;
@@ -227,10 +227,10 @@
     -moz-text-fill-color:transparent
 }   
 
-.main__content h2{
-    font-size: 4rem;
-    background-color: orange;
-    background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
+.main__content h2 {
+    font-size: 2rem;
+    background-color: #1716169d;
+    background-image: linear-gradient(to top, #9E9E90 0%, #43484a 100%);
     background-size: 100%;
     -webkit-background-clip:text ;
     -moz-background-clip: text;
@@ -239,15 +239,15 @@
 }
 
 .main__content p{
-    margin-top: 1rem;
+    margin-top: 2rem; 
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: #010101;
 }
 
 .main__btn {
     font-size: 1rem;
-    background-image: linear-gradient(to top, #f77062, #fe5196 100%);
+    background-image: linear-gradient(to top, #33bcae, #3aa384 100%);
     padding: 14px 32px;
     border: none;
     border-radius: 4px;
@@ -273,8 +273,8 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: #4837ff;
-    transition: all 0.35s;
+    background: #6c6ce0;
+    transition: all 0.5s;
     border-radius: 4px;
 }
 
@@ -348,5 +348,116 @@
         padding: 12px 36px;
         margin: 2.5rem 0;
     }
+}
 
+/*2e Sectie*/
+.sport {
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    height: 100vh;
+}
+
+.sport h1{
+    background-color: #ff8177;
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+    background-size:  100%;
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+    -webkit-background-clip:text ;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color:transparent
+}
+
+.sport__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sport__card {
+    margin: 1rem;
+    height: 525px;
+    width: 400px;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom,
+                                    rgba(0,0,0,0) 0%, 
+                                    rgba(17,17,17, 0.6) 100%),
+                                      url('/images/racket1.jpg');
+    background-size:cover;
+    position: relative;
+    color: #fff;
+}
+
+.sport__card:nth-child(2) {
+    margin: 1rem;
+    height: 525px;
+    width: 400px;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom,
+                                    rgba(0,0,0,0) 0%, 
+                                    rgba(17,17,17, 0.6) 100%),
+                                      url('/images/padel.jpg');
+    background-size:cover;
+    position: relative;
+    color: #fff;
+}
+
+.sport h2{
+    position: absolute;
+    top: 350px;
+    left: 30px;
+}
+
+.sport__card p{
+    position: absolute;
+    top: 380px;
+    left: 30px;
+}
+
+.sport__card button{
+    color: #fff;
+    padding: 10px 20px;
+    outline: none;
+    border: transparent;
+    background: #4FC3F7;
+    position: absolute;
+    top: 440px;
+    left: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.sport__card:hover{
+    transform: scale(1.08);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 960px){
+    .sport{
+        height: 1500px;
+    }
+    
+    .sport h1{
+        font-size: 2rem;
+        margin-top: 12rem;
+    }
+}
+
+@media screen and (max-width: 480px)
+{
+    .sport {
+        height: 1400px;
+    }
+
+    .sport h1{
+        font-size: 1.2rem;
+    }
+
+    .sport__card{
+        width: 300px;
+    }
 }
