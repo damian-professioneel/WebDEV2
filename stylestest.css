@@ -407,14 +407,14 @@
 
 .sport h2{
     position: absolute;
-    top: 350px;
-    left: 30px;
+    top: 420px;
+    right: 30px;
 }
 
 .sport__card p{
     position: absolute;
-    top: 380px;
-    left: 30px;
+    top: 450px;
+    right: 30px;
 }
 
 .sport__card button{
