@@ -1,45 +1,13 @@
 {
   "compilerOptions": {
-    // Environment Settings
-    "module": "nodenext",
-    "target": "esnext", // Using 'esnext' is fine, but it assumes your runtime supports it.
-    
-    // FIX: This ensures Object.entries() is recognized.
-    // 'esnext' implies 'es2017' and newer features.
-    "lib": ["dom", "esnext"], 
-    
-    // File Layout
-    // "rootDir": "./src", 
-    // "outDir": "./dist",
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Recommended Options
-    "strict": true,
+    "target": "es5",
+    "lib": ["dom", "es2017"],
+    "strict": false,
     "skipLibCheck": true,
-    
-    // Module/Project Structure Options
-    "isolatedModules": true, 
-    "verbatimModuleSyntax": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    
-    // Stricter Typechecking Options (Kept your stricter preferences)
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    
-    // Style Options (Uncomment these if you want to enforce stricter code style)
-    // "noImplicitReturns": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    
-    // You likely don't need 'jsx' for this project, but keeping it if it's for React/similar.
-    "jsx": "react-jsx", 
-    
-    // Clean up unnecessary/default options
-    "types": [] 
-  }
+    "allowJs": true,
+    "outDir": "./",
+    "rootDir": "./"
+  },
+  "include": ["*.ts"],
+  "exclude": ["node_modules"]
 }
