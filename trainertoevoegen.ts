@@ -5,9 +5,59 @@ type Field = {
 };
 
 
+let trainers: Record<string, string>[] = [
+    {
+        Naam: "John",
+        Achternaam: "Doe",
+        Telefoonnummer: "0612345678",
+        Email: "john.doe@example.com",
+        Wachtwoord: "secret123",
+        "Skill niveau": "Expert"
+    }
+];
+
 const form = document.querySelector<HTMLFormElement>(".form-boxes");
 if (!form) throw new Error("Form not found");
 
+
+function renderTrainers(): void {
+    let resultsDiv = document.getElementById("trainerResults");
+    if (!resultsDiv) {
+        resultsDiv = document.createElement("div");
+        resultsDiv.id = "trainerResults";
+        document.body.appendChild(resultsDiv);
+    }
+
+    resultsDiv.innerHTML = "";
+
+    trainers.forEach((trainer, index) => {
+        const trainerDiv = document.createElement("div");
+        trainerDiv.classList.add("trainer-entry");
+
+        trainerDiv.innerHTML = Object.entries(trainer)
+            .map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`)
+            .join("");
+
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.style.marginRight = "10px";
+        editBtn.addEventListener("click", () => {
+            alert("Edit not implemented yet for trainer " + (index + 1));
+        });
+
+        // Delete button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener("click", () => {
+            trainers.splice(index, 1);
+            renderTrainers();
+        });
+
+        trainerDiv.appendChild(editBtn);
+        trainerDiv.appendChild(deleteBtn);
+        resultsDiv.appendChild(trainerDiv);
+    });
+}
 
 form.addEventListener("submit", (event: Event) => {
     event.preventDefault();
@@ -53,44 +103,12 @@ form.addEventListener("submit", (event: Event) => {
     });
 
     if (allValid) {
-        const resultsDiv = document.getElementById("trainerResults") || createResultsDiv();
-        const trainerDiv = document.createElement("div");
-        trainerDiv.classList.add("trainer-entry");
-
-        trainerDiv.innerHTML = Object.entries(trainerData)
-            .map(([key, value]) => `<p>${key}: ${value}</p>`)
-            .join("");
-
-        resultsDiv.appendChild(trainerDiv);
-
-
-        const editBtn = document.createElement("button");
-        editBtn.textContent = "Edit";
-        editBtn.style.marginRight = "10px";
-        // editBtn.addEventListener("click", () => editTrainer(trainerDiv, trainerData)); meot nog edit ding maken
-        trainerDiv.appendChild(editBtn);
-
-
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.style.marginTop = "5px"; 
-        deleteBtn.style.marginBottom = "12px"; 
-        deleteBtn.addEventListener("click", () => trainerDiv.remove());
-        trainerDiv.appendChild(deleteBtn);
-
+        trainers.push(trainerData)
+        renderTrainers();
         form.reset();
     } else {
         alert("Please fill in all fields correctly.");
     }
 });
 
-
-function createResultsDiv(): HTMLDivElement {
-    const div = document.createElement("div");
-    div.id = "trainerResults";
-    div.style.margin = "10px";
-    div.style.borderTop = "2px solid #ccc";
-    div.style.paddingTop = "10px";
-    document.body.appendChild(div);
-    return div;
-}
+renderTrainers();

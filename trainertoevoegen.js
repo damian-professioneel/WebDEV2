@@ -1,6 +1,65 @@
+// --- Data Persistence Functions ---
+// 1. Define the initial hardcoded data for the very first load
+var initialTrainers = [
+    {
+        Naam: "John",
+        Achternaam: "Doe",
+        Telefoonnummer: "0612345678",
+        Email: "john.doe@example.com",
+        Wachtwoord: "secret123",
+        "Skill niveau": "Expert"
+    }
+];
+// 2. Load data from localStorage, falling back to initialTrainers
+// Note: JSON.parse(null) is not an error, but 'null' coalescing is cleaner.
+var trainers = JSON.parse(localStorage.getItem('trainersData') || 'null') || initialTrainers;
+// 3. Function to save the current trainers array to localStorage
+function saveTrainers() {
+    localStorage.setItem('trainersData', JSON.stringify(trainers));
+}
+// --- Application Logic (Modified) ---
 var form = document.querySelector(".form-boxes");
 if (!form)
     throw new Error("Form not found");
+function renderTrainers() {
+    var resultsDiv = document.getElementById("trainerResults");
+    if (!resultsDiv) {
+        resultsDiv = document.createElement("div");
+        resultsDiv.id = "trainerResults";
+        document.body.appendChild(resultsDiv);
+    }
+    resultsDiv.innerHTML = "";
+    trainers.forEach(function (trainer, index) {
+        var trainerDiv = document.createElement("div");
+        trainerDiv.classList.add("trainer-entry");
+        trainerDiv.innerHTML = Object.entries(trainer)
+            .map(function (_a) {
+            var key = _a[0], value = _a[1];
+            return "<p><strong>".concat(key, ":</strong> ").concat(value, "</p>");
+        })
+            .join("");
+        var editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.style.marginRight = "10px";
+        editBtn.addEventListener("click", function () {
+            alert("Edit not implemented yet for trainer " + (index + 1));
+        });
+        // Delete button
+        var deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener("click", function () {
+            // Use filter to create a new array without the deleted item
+            // and reassign trainers. This avoids issues with stale index closures.
+            // A simpler splice approach:
+            trainers.splice(index, 1);
+            saveTrainers(); // <-- SAVE CHANGE
+            renderTrainers();
+        });
+        trainerDiv.appendChild(editBtn);
+        trainerDiv.appendChild(deleteBtn);
+        resultsDiv.appendChild(trainerDiv);
+    });
+}
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     var fields = [
@@ -24,7 +83,8 @@ form.addEventListener("submit", function (event) {
                 isValid = value.length > 0;
                 break;
             case "number":
-                isValid = /^[0-9]+$/.test(value);
+                // Added a length check for typical phone numbers (8-15 digits)
+                isValid = /^[0-9]+$/.test(value) && value.length >= 8 && value.length <= 15;
                 break;
             case "email":
                 isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -40,39 +100,14 @@ form.addEventListener("submit", function (event) {
         }
     });
     if (allValid) {
-        var resultsDiv = document.getElementById("trainerResults") || createResultsDiv();
-        var trainerDiv_1 = document.createElement("div");
-        trainerDiv_1.classList.add("trainer-entry");
-        trainerDiv_1.innerHTML = Object.entries(trainerData)
-            .map(function (_a) {
-            var key = _a[0], value = _a[1];
-            return "<p>".concat(key, ": ").concat(value, "</p>");
-        })
-            .join("");
-        resultsDiv.appendChild(trainerDiv_1);
-        var editBtn = document.createElement("button");
-        editBtn.textContent = "Edit";
-        editBtn.style.marginRight = "10px";
-        // editBtn.addEventListener("click", () => editTrainer(trainerDiv, trainerData)); meot nog edit ding maken
-        trainerDiv_1.appendChild(editBtn);
-        var deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.style.marginTop = "5px";
-        deleteBtn.style.marginBottom = "12px";
-        deleteBtn.addEventListener("click", function () { return trainerDiv_1.remove(); });
-        trainerDiv_1.appendChild(deleteBtn);
+        trainers.push(trainerData);
+        saveTrainers(); // <-- SAVE CHANGE
+        renderTrainers();
         form.reset();
     }
     else {
         alert("Please fill in all fields correctly.");
     }
 });
-function createResultsDiv() {
-    var div = document.createElement("div");
-    div.id = "trainerResults";
-    div.style.margin = "10px";
-    div.style.borderTop = "2px solid #ccc";
-    div.style.paddingTop = "10px";
-    document.body.appendChild(div);
-    return div;
-}
+// Call renderTrainers() on load to display the data loaded from localStorage
+renderTrainers();
