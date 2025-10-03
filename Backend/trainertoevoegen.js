@@ -1,6 +1,4 @@
-// --- Data Persistence Functions ---
-// 1. Define the initial hardcoded data for the very first load
-var initialTrainers = [
+var trainers = [
     {
         Naam: "John",
         Achternaam: "Doe",
@@ -10,14 +8,6 @@ var initialTrainers = [
         "Skill niveau": "Expert"
     }
 ];
-// 2. Load data from localStorage, falling back to initialTrainers
-// Note: JSON.parse(null) is not an error, but 'null' coalescing is cleaner.
-var trainers = JSON.parse(localStorage.getItem('trainersData') || 'null') || initialTrainers;
-// 3. Function to save the current trainers array to localStorage
-function saveTrainers() {
-    localStorage.setItem('trainersData', JSON.stringify(trainers));
-}
-// --- Application Logic (Modified) ---
 var form = document.querySelector(".form-boxes");
 if (!form)
     throw new Error("Form not found");
@@ -48,11 +38,7 @@ function renderTrainers() {
         var deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.addEventListener("click", function () {
-            // Use filter to create a new array without the deleted item
-            // and reassign trainers. This avoids issues with stale index closures.
-            // A simpler splice approach:
             trainers.splice(index, 1);
-            saveTrainers(); // <-- SAVE CHANGE
             renderTrainers();
         });
         trainerDiv.appendChild(editBtn);
@@ -83,8 +69,7 @@ form.addEventListener("submit", function (event) {
                 isValid = value.length > 0;
                 break;
             case "number":
-                // Added a length check for typical phone numbers (8-15 digits)
-                isValid = /^[0-9]+$/.test(value) && value.length >= 8 && value.length <= 15;
+                isValid = /^[0-9]+$/.test(value);
                 break;
             case "email":
                 isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -101,7 +86,6 @@ form.addEventListener("submit", function (event) {
     });
     if (allValid) {
         trainers.push(trainerData);
-        saveTrainers(); // <-- SAVE CHANGE
         renderTrainers();
         form.reset();
     }
@@ -109,5 +93,4 @@ form.addEventListener("submit", function (event) {
         alert("Please fill in all fields correctly.");
     }
 });
-// Call renderTrainers() on load to display the data loaded from localStorage
 renderTrainers();

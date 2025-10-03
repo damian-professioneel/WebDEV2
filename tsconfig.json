@@ -8,6 +8,6 @@
     "outDir": "./",
     "rootDir": "./"
   },
-  "include": ["*.ts"],
+  "include": ["*.ts", "Backend/trainings.ts", "Backend/trainertoevoegen.ts", "Backend/script.ts"],
   "exclude": ["node_modules"]
 }
