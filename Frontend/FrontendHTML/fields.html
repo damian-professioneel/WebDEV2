@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Portal</title>
+  <link rel="stylesheet" href="../FrontendCSS/styles.css">
+</head>
+<body>
+  
+  <div id="nav-placeholder"></div>
+
+  <h1>SOORTEN VELDEN</h1>
+  <div>
+    <p>Baan nummer: </p><input type="number" id="baanInput">
+    <p>Spelers: </p><input type="number" id="spelersInput" placeholder="4">
+    <p>Speltype: </p>
+    <select id="spelType">
+      <option>Padel</option>
+      <option>Tennis</option>
+    </select>
+  </div>
+  <button id="knopvooradd">Toevoegen</button>
+  <ul id="banenLijst">
+  </ul>
+
+  <script src="../../Backend/script.js"></script>
+  <script src="../../Backend/LoadNav.js"></script>
+</body>
+</html>
