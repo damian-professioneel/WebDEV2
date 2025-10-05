@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es6"],
     "strict": false,
     "skipLibCheck": true,
     "allowJs": true,
     "outDir": "./",
     "rootDir": "./"
   },
-  "include": ["*.ts"],
+  "include": ["trainings.ts"],
   "exclude": ["node_modules"]
 }
