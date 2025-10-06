@@ -1,5 +1,5 @@
 // script.ts
-var banenopslag = [
+let banenopslag = [
     { baan: 1, spelers: 4, speltype: "padel", occupied: false },
     { baan: 2, spelers: 4, speltype: "padel", occupied: false },
     { baan: 3, spelers: 4, speltype: "padel", occupied: false },
@@ -12,19 +12,19 @@ var banenopslag = [
     { baan: 10, spelers: 2, speltype: "tennis", occupied: false }
 ];
 loadBaan();
-var buttons = document.querySelectorAll("button.Delete");
-var addknop = document.getElementById("knopvooradd");
+const buttons = document.querySelectorAll("button.Delete");
+const addknop = document.getElementById("knopvooradd");
 function verwijderBaan(button) {
     button.parentElement != null ? button.parentElement.remove() : new Error("Button is er niet, weird?");
 }
-buttons.forEach(function (button) {
-    button.addEventListener("click", function () { return verwijderBaan(button); });
+buttons.forEach((button) => {
+    button.addEventListener("click", () => verwijderBaan(button));
 });
-addknop === null || addknop === void 0 ? void 0 : addknop.addEventListener("click", function () {
-    var playerTeller = document.getElementById("spelersInput");
-    var baanNummer = document.getElementById("baanInput");
-    var spelType = document.getElementById("spelType");
-    var errorMessage = "";
+addknop === null || addknop === void 0 ? void 0 : addknop.addEventListener("click", () => {
+    const playerTeller = document.getElementById("spelersInput");
+    const baanNummer = document.getElementById("baanInput");
+    const spelType = document.getElementById("spelType");
+    let errorMessage = "";
     if (baanNummer.value == "") {
         errorMessage += "* Baan nummer is niet ingevuld.\n";
     }
@@ -35,7 +35,7 @@ addknop === null || addknop === void 0 ? void 0 : addknop.addEventListener("clic
         alert(errorMessage);
         return;
     }
-    var nieuweBaan = {
+    const nieuweBaan = {
         baan: Number(baanNummer.value),
         spelers: Number(playerTeller.value),
         speltype: spelType.value,
@@ -45,19 +45,19 @@ addknop === null || addknop === void 0 ? void 0 : addknop.addEventListener("clic
     loadBaan();
 });
 function loadBaan() {
-    var banenLijst = document.getElementById("banenLijst");
+    const banenLijst = document.getElementById("banenLijst");
     if (!banenLijst) {
         alert("miauw");
         return;
     }
     banenLijst.innerHTML = "";
-    banenopslag.forEach(function (baan) {
-        var li = document.createElement("li");
-        li.textContent = "Baan ".concat(baan.baan, " - ").concat(baan.speltype, " (").concat(baan.spelers, " spelers) ");
-        var nieuweKnop = document.createElement("button");
+    banenopslag.forEach((baan) => {
+        const li = document.createElement("li");
+        li.textContent = `Baan ${baan.baan} - ${baan.speltype} (${baan.spelers} spelers) `;
+        const nieuweKnop = document.createElement("button");
         nieuweKnop.className = "Delete";
         nieuweKnop.textContent = "Delete";
-        nieuweKnop.addEventListener("click", function () { return verwijderBaan(nieuweKnop); });
+        nieuweKnop.addEventListener("click", () => verwijderBaan(nieuweKnop));
         li.appendChild(nieuweKnop);
         banenLijst.appendChild(li);
     });

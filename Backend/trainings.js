@@ -1,54 +1,85 @@
-// trainings.ts
 // Array om trainingen in op te slaan
-var trainings = [];
-// Functie om trainingen uit localStorage te laden
-function loadTrainings() {
-    var storedTrainings = localStorage.getItem("trainings");
-    if (storedTrainings) {
-        trainings = JSON.parse(storedTrainings);
-    }
-}
-// Functie om trainingen op te slaan in localStorage
-function saveTrainings() {
-    localStorage.setItem("trainings", JSON.stringify(trainings));
-}
+let trainings = [];
 // HTML elementen selecteren
-var trainingForm = document.querySelector(".training-form");
-var trainingContainer = document.querySelector(".trainings-container");
+const trainingForm = document.querySelector(".training-form");
+const trainingContainer = document.querySelector(".trainings-container");
+// Debug: Check if elements are found
+console.log("Training form found:", trainingForm);
+console.log("Training container found:", trainingContainer);
 // Event listener voor formulier submit
-trainingForm.addEventListener("submit", function (e) {
+trainingForm.addEventListener("submit", (e) => {
     e.preventDefault();
     // Waarden uit het formulier halen
-    var name = document.getElementById("trainingName").value;
-    var date = document.getElementById("trainingDate").value;
-    var time = document.getElementById("trainingTime").value;
-    var field = document.getElementById("trainingField").value;
-    var max = parseInt(document.getElementById("maxParticipants").value);
+    const name = document.getElementById("trainingName").value;
+    const date = document.getElementById("trainingDate").value;
+    const time = document.getElementById("trainingTime").value;
+    const field = document.getElementById("trainingField").value;
+    const max = parseInt(document.getElementById("maxParticipants").value);
     // Nieuw training-object maken
-    var newTraining = { name: name, date: date, time: time, field: field, max: max };
+    const newTraining = { name, date, time, field, max };
     // Toevoegen aan array
     trainings.push(newTraining);
-    // Opslaan in localStorage
-    saveTrainings();
     // UI updaten
-    renderTrainings();
+    loadTrainings();
+    // Scroll to the newly added training
+    setTimeout(() => {
+        scrollToLastTraining();
+    }, 100); // Small delay to ensure DOM is updated
+    alert("Training succesvol toegevoegd!");
     // Formulier resetten
     trainingForm.reset();
-    // Bevestiging tonen
-    alert("Training succesvol toegevoegd!");
 });
-// Functie om trainingen te renderen
-function renderTrainings() {
+// Functie om trainingen te laden
+function loadTrainings() {
+    console.log("loadTrainings called with", trainings.length, "trainings");
+    if (!trainingContainer) {
+        console.error("Training container not found!");
+        return;
+    }
     trainingContainer.innerHTML = "";
-    trainings.forEach(function (t) {
-        var div = document.createElement("div");
+    trainings.forEach((t, index) => {
+        const div = document.createElement("div");
         div.classList.add("training-card");
-        div.innerHTML = "\n            <h3>".concat(t.name, "</h3>\n            <p><strong>Datum:</strong> ").concat(t.date, "</p>\n            <p><strong>Tijd:</strong> ").concat(t.time, "</p>\n            <p><strong>Veld:</strong> ").concat(t.field, "</p>\n            <p><strong>Max deelnemers:</strong> ").concat(t.max, "</p>\n        ");
+        div.innerHTML = `
+            <h3>${t.name}</h3>
+            <p><strong>Datum:</strong> ${t.date}</p>
+            <p><strong>Tijd:</strong> ${t.time}</p>
+            <p><strong>Veld:</strong> ${t.field}</p>
+            <p><strong>Max deelnemers:</strong> ${t.max}</p>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+        `;
+        // Add event listener to delete button
+        const deleteBtn = div.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", () => verwijderTraining(index));
         trainingContainer.appendChild(div);
     });
 }
-// Trainingen laden wanneer de pagina wordt geladen
-document.addEventListener('DOMContentLoaded', function () {
-    loadTrainings();
-    renderTrainings();
-});
+// Function to scroll to the last added training
+function scrollToLastTraining() {
+    const trainingCards = document.querySelectorAll('.training-card');
+    if (trainingCards.length > 0) {
+        const lastCard = trainingCards[trainingCards.length - 1];
+        lastCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+        // Optional: Add a highlight effect
+        lastCard.classList.add('newly-added');
+        setTimeout(() => {
+            lastCard.classList.remove('newly-added');
+        }, 2000);
+    }
+}
+function verwijderTraining(index) {
+    try {
+        // Remove training from array
+        trainings.splice(index, 1);
+        // Re-render the trainings list
+        loadTrainings();
+        alert("Training verwijderd!");
+    }
+    catch (error) {
+        console.error("Error removing training:", error);
+        alert("Er is een fout opgetreden bij het verwijderen van de training.");
+    }
+}

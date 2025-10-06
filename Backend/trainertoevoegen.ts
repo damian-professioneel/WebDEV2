@@ -34,8 +34,8 @@ function renderTrainers(): void {
         const trainerDiv = document.createElement("div");
         trainerDiv.classList.add("trainer-entry");
 
-        trainerDiv.innerHTML = Object.entries(trainer)
-            .map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`)
+        trainerDiv.innerHTML = Object.keys(trainer)
+            .map(key => `<p><strong>${key}:</strong> ${(trainer as any)[key]}</p>`)
             .join("");
 
         const editBtn = document.createElement("button");

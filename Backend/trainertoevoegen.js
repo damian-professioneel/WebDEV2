@@ -1,4 +1,4 @@
-var trainers = [
+let trainers = [
     {
         Naam: "John",
         Achternaam: "Doe",
@@ -8,36 +8,33 @@ var trainers = [
         "Skill niveau": "Expert"
     }
 ];
-var form = document.querySelector(".form-boxes");
+const form = document.querySelector(".form-boxes");
 if (!form)
     throw new Error("Form not found");
 function renderTrainers() {
-    var resultsDiv = document.getElementById("trainerResults");
+    let resultsDiv = document.getElementById("trainerResults");
     if (!resultsDiv) {
         resultsDiv = document.createElement("div");
         resultsDiv.id = "trainerResults";
         document.body.appendChild(resultsDiv);
     }
     resultsDiv.innerHTML = "";
-    trainers.forEach(function (trainer, index) {
-        var trainerDiv = document.createElement("div");
+    trainers.forEach((trainer, index) => {
+        const trainerDiv = document.createElement("div");
         trainerDiv.classList.add("trainer-entry");
-        trainerDiv.innerHTML = Object.entries(trainer)
-            .map(function (_a) {
-            var key = _a[0], value = _a[1];
-            return "<p><strong>".concat(key, ":</strong> ").concat(value, "</p>");
-        })
+        trainerDiv.innerHTML = Object.keys(trainer)
+            .map(key => `<p><strong>${key}:</strong> ${trainer[key]}</p>`)
             .join("");
-        var editBtn = document.createElement("button");
+        const editBtn = document.createElement("button");
         editBtn.textContent = "Edit";
         editBtn.style.marginRight = "10px";
-        editBtn.addEventListener("click", function () {
+        editBtn.addEventListener("click", () => {
             alert("Edit not implemented yet for trainer " + (index + 1));
         });
         // Delete button
-        var deleteBtn = document.createElement("button");
+        const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
-        deleteBtn.addEventListener("click", function () {
+        deleteBtn.addEventListener("click", () => {
             trainers.splice(index, 1);
             renderTrainers();
         });
@@ -46,9 +43,9 @@ function renderTrainers() {
         resultsDiv.appendChild(trainerDiv);
     });
 }
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
-    var fields = [
+    const fields = [
         { id: "naamTrainer", label: "Naam", type: "string" },
         { id: "achternaamTrainer", label: "Achternaam", type: "string" },
         { id: "telNummer", label: "Telefoonnummer", type: "number" },
@@ -56,14 +53,14 @@ form.addEventListener("submit", function (event) {
         { id: "Wachtwoord", label: "Wachtwoord", type: "string" },
         { id: "skill", label: "Skill niveau", type: "string" }
     ];
-    var allValid = true;
-    var trainerData = {};
-    fields.forEach(function (field) {
-        var input = document.getElementById(field.id);
+    let allValid = true;
+    const trainerData = {};
+    fields.forEach(field => {
+        const input = document.getElementById(field.id);
         if (!input)
             return;
-        var value = input.value.trim();
-        var isValid = false;
+        const value = input.value.trim();
+        let isValid = false;
         switch (field.type) {
             case "string":
                 isValid = value.length > 0;
