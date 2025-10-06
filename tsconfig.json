@@ -9,6 +9,6 @@
     "outDir": "./",
     "rootDir": "./"
   },
-  "include": ["*.ts", "Backend/trainings.ts", "Backend/trainertoevoegen.ts", "Backend/script.ts"],
+  "include": ["*.ts", "Backend/trainings.ts", "Backend/trainertoevoegen.ts", "Backend/script.ts", "Backend/Lesson.ts"],
   "exclude": ["node_modules"]
 }
