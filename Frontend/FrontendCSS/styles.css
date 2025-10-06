@@ -585,5 +585,49 @@ button:focus {
         margin: 0.25rem 0;
     }
 }
+#accountForm {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px 32px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
+#accountForm label {
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+}
+
+#accountForm input,
+#accountForm select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+#accountForm button[type="submit"] {
+    background: #0c360f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#accountForm button[type="submit"]:hover {
+    background: #005fa3;
+}
 /* Highlight effect for newly added training */
