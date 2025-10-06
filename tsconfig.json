@@ -1,8 +1,14 @@
 {
+
   "compilerOptions": {
-    "target": "es2017",
-    "lib": ["es2017", "dom"],
-    "module": "esnext",
-    "strict": true
-  }
+    "target": "es5",
+    "lib": ["dom", "es2017"],
+    "strict": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "outDir": "./",
+    "rootDir": "./"
+  },
+  "include": ["*.ts", "Backend/trainings.ts", "Backend/trainertoevoegen.ts", "Backend/script.ts"],
+  "exclude": ["node_modules"]
 }
