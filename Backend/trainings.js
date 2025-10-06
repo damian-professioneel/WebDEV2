@@ -1,11 +1,18 @@
 // Array om trainingen in op te slaan
 let trainings = [];
+let members = [];
 // HTML elementen selecteren
 const trainingForm = document.querySelector(".training-form");
 const trainingContainer = document.querySelector(".trainings-container");
+const memberForm = document.querySelector(".member-form");
+const membersContainer = document.querySelector(".members-grid");
 // Debug: Check if elements are found
 console.log("Training form found:", trainingForm);
 console.log("Training container found:", trainingContainer);
+console.log("Member form found:", memberForm);
+console.log("Members container found:", membersContainer);
+// Initial load van trainingen
+loadTrainings();
 // Event listener voor formulier submit
 trainingForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -81,5 +88,48 @@ function verwijderTraining(index) {
     catch (error) {
         console.error("Error removing training:", error);
         alert("Er is een fout opgetreden bij het verwijderen van de training.");
+    }
+}
+function loadMembers() {
+    if (!membersContainer) {
+        console.error("Members container not found!");
+        return;
+    }
+    membersContainer.innerHTML = "";
+    members.forEach((m, index) => {
+        const div = document.createElement("div");
+        div.classList.add("member-card");
+        div.innerHTML = `
+            <h3>${m.firstName} ${m.lastName}</h3>
+            <p><strong>Email:</strong> ${m.email}</p>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+        `;
+        // Add event listener to delete button
+        const deleteBtn = div.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", () => verwijderMember(index));
+        membersContainer.appendChild(div);
+    });
+}
+// Event listener voor member formulier submit
+memberForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const firstName = document.getElementById("memberFirstName").value;
+    const lastName = document.getElementById("memberLastName").value;
+    const email = document.getElementById("memberEmail").value;
+    const newMember = { firstName, lastName, email };
+    members.push(newMember);
+    loadMembers();
+    alert("Lid succesvol toegevoegd!");
+    memberForm.reset();
+});
+function verwijderMember(index) {
+    try {
+        members.splice(index, 1);
+        loadMembers();
+        alert("Lid verwijderd!");
+    }
+    catch (error) {
+        console.error("Error removing member:", error);
+        alert("Er is een fout opgetreden bij het verwijderen van het lid.");
     }
 }
