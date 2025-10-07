@@ -1,1 +1,1 @@
-{"root":["./lesson.ts","./backend/trainings.ts","./backend/trainertoevoegen.ts","./backend/script.ts"],"version":"5.9.2"}
+{"root":["./backend/lesson.ts","./backend/account.ts","./backend/script.ts","./backend/trainertoevoegen.ts","./backend/trainings.ts"],"version":"5.9.2"}
