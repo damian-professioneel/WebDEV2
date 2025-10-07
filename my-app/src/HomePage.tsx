@@ -1,24 +1,23 @@
 import React from "react";
-import "./FrontendCSS/stylestest.css"; 
 import { useNavigate } from "react-router-dom";
 
 export const IndexTest: React.FC = () => {
   // Dummy handlers voor de sport cards
+  const navigate = useNavigate();
   const goToPageTennis = () => {
     alert("Ga naar Tennis pagina");
-    // window.location.href = "/tennis"; // of een andere route
+    navigate("/tennis");
   };
   const goToPagePadel = () => {
     alert("Ga naar Padel pagina");
-    // window.location.href = "/padel";
+    navigate("/padel");
   };
 
 
   return (
     <div>
-      
-
       {/* main tekst */}
+      
       <div className="main">
         <div className="main__container">
           <div className="main__content">
@@ -30,7 +29,7 @@ export const IndexTest: React.FC = () => {
             </button>
           </div>
           <div className="main__img--container">
-            <img src="images/pic1.svg" alt="pic" id="main__img" />
+            <img src="/images/pic1.svg" alt="pic" id="main__img" />
           </div>
         </div>
       </div>

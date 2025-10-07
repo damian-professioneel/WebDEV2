@@ -1,14 +1,20 @@
-import { useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import { LoginForm } from './Login'
 import { IndexTest } from './HomePage';
 import { LessonTable } from './Lesson';
-import { Navbar } from './NavBar';
+import Navbar from './NavBar';
+import './FrontendCSS/minimal-styles.css';
 
 function App() {
 
   return (
-    <div>
+    <div style={{
+      width: '100%',
+      margin: 0,
+      padding: 0,
+      overflowX: 'hidden',
+      position: 'relative'
+    }}>
       <Navbar/>
     <Routes>
       <Route path="/" element={<IndexTest />} />

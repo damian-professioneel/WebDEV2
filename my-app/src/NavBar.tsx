@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import "./FrontendCSS/stylestest.css";
 
 
-export const Navbar : React.FC = () =>{
+const Navbar : React.FC = () =>{
     const navigate = useNavigate();
+    
+    // Debug log to check if component is rendering
+    console.log("NavBar is rendering!");
 
   const goToLogin = () => {
     navigate("/login");
@@ -65,3 +67,5 @@ export const Navbar : React.FC = () =>{
 
     )
 }
+
+export default Navbar;
