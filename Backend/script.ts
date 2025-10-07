@@ -27,7 +27,10 @@ const buttons = document.querySelectorAll<HTMLButtonElement>("button.Delete");
 const addknop = document.getElementById("knopvooradd") as HTMLButtonElement | null;
 
 function verwijderBaan(button: HTMLButtonElement): void {
-  button.parentElement != null ? button.parentElement.remove() : new Error("Button is er niet, weird?");
+  const baanNummer : Number = parseInt(button.parentElement.textContent.split(' ')[1])
+  banenopslag = banenopslag.filter(b => b.baan !== baanNummer);
+
+
 }
 
 buttons.forEach((button) => {
@@ -55,6 +58,15 @@ addknop?.addEventListener("click", () => {
         alert(errorMessage)
         return;
     }
+
+    const baanNummer2 = parseInt(baanNummer.value)
+    const found = banenopslag.filter(b => b.baan === baanNummer2);
+    if (found.length > 0)
+    {
+        alert(`Baannummer: ${baanNummer2} bestaat al!`)
+        return;
+    }
+
     const nieuweBaan : banen = {
     baan: Number(baanNummer.value),
     spelers: Number(playerTeller.value),
