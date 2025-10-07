@@ -2,14 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export const IndexTest: React.FC = () => {
-  // Dummy handlers voor de sport cards
   const navigate = useNavigate();
-  const goToPageTennis = () => {
-    alert("Ga naar Tennis pagina");
+  const goToPageTennis = () => {  
     navigate("/tennis");
   };
   const goToPagePadel = () => {
-    alert("Ga naar Padel pagina");
     navigate("/padel");
   };
 

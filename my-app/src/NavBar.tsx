@@ -19,7 +19,7 @@ const Navbar : React.FC = () =>{
   }
 
   const goToTrainings = () => {
-    navigate("/");
+    navigate("/teachers");
   }
 
   const goToTeachers = () => {
