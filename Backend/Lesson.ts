@@ -1,4 +1,3 @@
-export {};
 interface Lesson {
     start: string;
     end: string;
