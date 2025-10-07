@@ -81,15 +81,38 @@ function loadTrainings(): void {
             <p><strong>Tijd:</strong> ${t.time}</p>
             <p><strong>Veld:</strong> ${t.field}</p>
             <p><strong>Max deelnemers:</strong> ${t.max}</p>
-            <button class="delete-btn" data-index="${index}">Delete</button>
+            <div class="button-group">
+                <button class="edit-btn" data-index="${index}">Edit</button>
+                <button class="delete-btn" data-index="${index}">Delete</button>
+            </div>
         `;
         
+        // Add event listener to edit button
+        const editBtn = div.querySelector(".edit-btn") as HTMLButtonElement;
+        console.log("Edit button found:", editBtn);
+        if (editBtn) {
+            editBtn.addEventListener("click", () => bewerkTraining(index));
+        }
+
         // Add event listener to delete button
         const deleteBtn = div.querySelector(".delete-btn") as HTMLButtonElement;
-        deleteBtn.addEventListener("click", () => verwijderTraining(index));
+        console.log("Delete button found:", deleteBtn);
+        if (deleteBtn) {
+            deleteBtn.addEventListener("click", () => verwijderTraining(index));
+        }
         
         trainingContainer.appendChild(div);
     });
+}
+
+function bewerkTraining(index: number): void {
+    const training = trainings[index];
+    // Populate form with existing training data
+    (document.getElementById("trainingName") as HTMLInputElement).value = training.name;
+    (document.getElementById("trainingDate") as HTMLInputElement).value = training.date;
+    (document.getElementById("trainingTime") as HTMLInputElement).value = training.time;
+    (document.getElementById("trainingField") as HTMLSelectElement).value = training.field;
+    (document.getElementById("maxParticipants") as HTMLInputElement).value = training.max.toString();
 }
 
 // Function to scroll to the last added training

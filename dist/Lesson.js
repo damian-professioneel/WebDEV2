@@ -57,4 +57,3 @@ function renderSchedule(schedule) {
     }
 }
 renderSchedule(schedule);
-export {};
