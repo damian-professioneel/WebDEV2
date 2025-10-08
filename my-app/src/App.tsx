@@ -7,31 +7,31 @@ import { Teachers } from "./Teachers";
 import { PadelInfo } from "./PadelInfo";
 import { TennisInfo } from "./TennisInfo";
 import Navbar from './NavBar';
+import Footer from './Footer';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
+import './FrontendCSS/Footer.css';
 
-function App() {
-
+const App = () => {
   return (
-    <div style={{
-      width: '100%',
-      margin: 0,
-      padding: 0,
-      overflowX: 'hidden',
-      position: 'relative'
-    }}>
+
+    <div className="app-layout"> 
       <Navbar/>
-    <Routes>
-      <Route path="/" element={<IndexTest />} />
-      <Route path="/login" element={<LoginForm />} />   
-      <Route path='/lessons' element={<LessonTable/>} />
-      <Route path="/fields" element={<FieldsTable/>}/>
-      <Route path='/teachers' element={<Teachers/>} />
-      <Route path='/padelInfo' element={<PadelInfo/>}/>
-      <Route path='/tennisInfo' element={<TennisInfo/>}/>
-    </Routes>
-    </div>    
-  )
-}
+      <main className="app-main-content">
+        <Routes>
+          <Route path="/" element={<IndexTest />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path='/lessons' element={<LessonTable/>} />
+          <Route path="/fields" element={<FieldsTable/>}/>
+          <Route path='/teachers' element={<Teachers/>} />
+          <Route path='/padelInfo' element={<PadelInfo/>}/>
+          <Route path='/tennisInfo' element={<TennisInfo/>}/>
+        </Routes>
+      </main>
+      
+      <Footer/>
+    </div>
+  );
+};
 
 export default App
