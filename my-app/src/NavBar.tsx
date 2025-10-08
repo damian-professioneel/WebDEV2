@@ -23,7 +23,7 @@ const Navbar : React.FC = () =>{
   }
 
   const goToTeachers = () => {
-    navigate("/");
+    navigate("/teachers");
   }
 
   const goToFields = () => {

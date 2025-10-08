@@ -2,15 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export const IndexTest: React.FC = () => {
-  // Dummy handlers voor de sport cards
   const navigate = useNavigate();
-  const goToPageTennis = () => {
-    alert("Ga naar Tennis pagina");
-    navigate("/tennis");
+  const goToPageTennis = () => {  
+    navigate("/tennisInfo");
   };
   const goToPagePadel = () => {
-    alert("Ga naar Padel pagina");
-    navigate("/padel");
+    navigate("/padelInfo");
   };
 
 
@@ -29,7 +26,7 @@ export const IndexTest: React.FC = () => {
             </button>
           </div>
           <div className="main__img--container">
-            <img src="/images/pic1.svg" alt="pic" id="main__img" />
+            <img src="/images/pic1.svg" alt="pic" id="pic1.svg" />
           </div>
         </div>
       </div>
