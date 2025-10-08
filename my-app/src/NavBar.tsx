@@ -27,7 +27,7 @@ const Navbar : React.FC = () =>{
   }
 
   const goToFields = () => {
-    navigate("/");
+    navigate("/fields");
   }
 
     return(

@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { LoginForm } from './Login'
 import { IndexTest } from './HomePage';
 import { LessonTable } from './Lesson';
+import { FieldsTable } from "./Fields";
 import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={<IndexTest />} />
       <Route path="/login" element={<LoginForm />} />   
       <Route path='/lessons' element={<LessonTable/>} />
+      <Route path="/fields" element={<FieldsTable/>}/>
     </Routes>
     </div>    
   )
