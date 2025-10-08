@@ -10,8 +10,18 @@ import Trainings  from "./Trainings";
 import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
+import { useEffect, useState } from "react";
+import AdminNavbar from "./AdminNavBar";
+import MemberNavbar from "./MemberNavBar";
+import TeacherNavbar from "./TeacherNavBar";
 
 function App() {
+  const [role, setRole] = useState<"admin" | "member" | "teacher" | "">("");
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role") as "admin" | "member" | "teacher" | null;
+    if (storedRole) setRole(storedRole);
+  }, []);
 
   return (
     <div style={{
@@ -21,10 +31,13 @@ function App() {
       overflowX: 'hidden',
       position: 'relative'
     }}>
-      <Navbar/>
+      {role === "admin" && <AdminNavbar />}
+      {role === "teacher" && <TeacherNavbar />}
+      {role === "member" && <MemberNavbar />}
+      {!role && <MemberNavbar />}
     <Routes>
       <Route path="/" element={<IndexTest />} />
-      <Route path="/login" element={<LoginForm />} />   
+      <Route path="/login" element={<LoginForm setRole={setRole} />} />   
       <Route path='/lessons' element={<LessonTable/>} />
       <Route path="/fields" element={<FieldsTable/>}/>
       <Route path='/teachers' element={<Teachers/>} />
