@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import './FrontendCSS/styles.css';
 
@@ -22,8 +21,3 @@ export const FieldsTable: React.FC<{}> = () => {
         </div>
     )
 }
-=======
-export const Fields: React.FC = () => {
-    return <div>DimmaD is clueless over react help deze arme jongen....</div>
-};
->>>>>>> 8f0112e15b0258261642ee215ca6444b0c98e19e
