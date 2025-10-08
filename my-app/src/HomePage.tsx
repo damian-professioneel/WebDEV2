@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 export const IndexTest: React.FC = () => {
   const navigate = useNavigate();
   const goToPageTennis = () => {  
-    navigate("/tennis");
+    navigate("/tennisInfo");
   };
   const goToPagePadel = () => {
-    navigate("/padel");
+    navigate("/padelInfo");
   };
 
 
@@ -26,7 +26,7 @@ export const IndexTest: React.FC = () => {
             </button>
           </div>
           <div className="main__img--container">
-            <img src="/images/pic1.svg" alt="pic" id="main__img" />
+            <img src="/images/pic1.svg" alt="pic" id="pic1.svg" />
           </div>
         </div>
       </div>

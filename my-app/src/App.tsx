@@ -3,6 +3,9 @@ import { LoginForm } from './Login'
 import { IndexTest } from './HomePage';
 import { LessonTable } from './Lesson';
 import { Teachers } from "./Teachers";
+import { Fields } from "./Fields";
+import { PadelInfo } from "./PadelInfo";
+import { TennisInfo } from "./TennisInfo";
 import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
@@ -23,6 +26,9 @@ function App() {
       <Route path="/login" element={<LoginForm />} />   
       <Route path='/lessons' element={<LessonTable/>} />
       <Route path='/teachers' element={<Teachers/>} />
+      <Route path='/fields' element={<Fields/>}/>
+      <Route path='/padelInfo' element={<PadelInfo/>}/>
+      <Route path='/tennisInfo' element={<TennisInfo/>}/>
     </Routes>
     </div>    
   )
