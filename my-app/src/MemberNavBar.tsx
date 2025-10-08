@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 
 
-const Navbar : React.FC = () =>{
+const AdminNavBar : React.FC = () =>{
     const navigate = useNavigate();
 
     return(
@@ -10,7 +10,7 @@ const Navbar : React.FC = () =>{
         {/* Navigatie bar */}
       <nav className="navbar">
         <div className="navbar__container">
-          <a href="" id="navbar__logo">Geronimo</a>
+          <a href="" id="navbar__logo">Logo</a>
           <div className="navbar__toggle" id="mobile-menu">
             <span className="bar"></span>
             <span className="bar"></span>
@@ -22,6 +22,9 @@ const Navbar : React.FC = () =>{
             </li>
             <li className="navbar__item">
               <button onClick={() => navigate("/lessons")} className="navbar__links">Trainings</button>
+            </li>
+            <li className="navbar__item">
+              <button onClick={() => navigate("/admin")} className="navbar__links">Your Lessons</button>
             </li>
             <li className="navbar__item">
               <button onClick={() => navigate("/teachers")} className="navbar__links">Teachers</button>
@@ -43,4 +46,4 @@ const Navbar : React.FC = () =>{
     )
 }
 
-export default Navbar;
+export default AdminNavBar;
