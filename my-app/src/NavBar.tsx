@@ -35,7 +35,7 @@ const Navbar : React.FC = () =>{
         {/* Navigatie bar */}
       <nav className="navbar">
         <div className="navbar__container">
-          <a href="" id="navbar__logo">Logo</a>
+          <a href="" id="navbar__logo">Geronimo</a>
           <div className="navbar__toggle" id="mobile-menu">
             <span className="bar"></span>
             <span className="bar"></span>
@@ -46,7 +46,7 @@ const Navbar : React.FC = () =>{
               <button onClick={goToHome} className="navbar__links">Home</button>
             </li>
             <li className="navbar__item">
-              <button onClick={goToTrainings} className="navbar__links">Trainings</button>
+              <button onClick={() => navigate("/trainings")} className="navbar__links">Trainings</button>
             </li>
             <li className="navbar__item">
               <button onClick={goToTeachers} className="navbar__links">Teachers</button>

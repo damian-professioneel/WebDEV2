@@ -6,6 +6,7 @@ import { FieldsTable } from "./Fields";
 import { Teachers } from "./Teachers";
 import { PadelInfo } from "./PadelInfo";
 import { TennisInfo } from "./TennisInfo";
+import Trainings  from "./Trainings";
 import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
@@ -29,6 +30,7 @@ function App() {
       <Route path='/teachers' element={<Teachers/>} />
       <Route path='/padelInfo' element={<PadelInfo/>}/>
       <Route path='/tennisInfo' element={<TennisInfo/>}/>
+      <Route path='/trainings' element={<Trainings/>}/>
     </Routes>
     </div>    
   )
