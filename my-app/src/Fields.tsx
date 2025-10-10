@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import './FrontendCSS/fields.css';
 
 
+=======
+import './FrontendCSS/styles.css';
+>>>>>>> a0fdce7163e19cedeb6a206234f2847d40ea512a
 
 
 export const FieldsTable: React.FC<{}> = () => {
