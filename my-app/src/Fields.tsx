@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import './FrontendCSS/styles.css';
 
 
-
-
-
-
-
-
-
-
 export const FieldsTable: React.FC<{}> = () => {
     type banen =
     {

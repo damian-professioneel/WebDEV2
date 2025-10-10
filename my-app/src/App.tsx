@@ -11,12 +11,13 @@ import Navbar from './NavBar';
 import Footer from './Footer';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
+import './FrontendCSS/Footer.css';
 import { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavBar";
 import MemberNavbar from "./MemberNavBar";
 import TeacherNavbar from "./TeacherNavBar";
 
-function App() {
+const App = () => {
   const [role, setRole] = useState<"admin" | "member" | "teacher" | "">("");
 
   useEffect(() => {
@@ -25,29 +26,25 @@ function App() {
   }, []);
 
   return (
-    <div style={{
-      width: '100%',
-      margin: 0,
-      padding: 0,
-      overflowX: 'hidden',
-      position: 'relative'
-    }}>
+    <div className="app-layout"> 
       {role === "admin" && <AdminNavbar />}
       {role === "teacher" && <TeacherNavbar />}
-      {role === "member" && <MemberNavbar />}
-      {!role && <MemberNavbar />}
-    <Routes>
-      <Route path="/" element={<IndexTest />} />
-      <Route path="/login" element={<LoginForm setRole={setRole} />} />   
-      <Route path='/lessons' element={<LessonTable/>} />
-      <Route path="/fields" element={<FieldsTable/>}/>
-      <Route path='/teachers' element={<Teachers/>} />
-      <Route path='/padelInfo' element={<PadelInfo/>}/>
-      <Route path='/tennisInfo' element={<TennisInfo/>}/>
-      <Route path='/trainings' element={<Trainings/>}/>
-    </Routes>
-    </div>    
-  )
-}
+      {(role === "member" || !role) && <MemberNavbar />}
+      <main className="app-main-content">
+        <Routes>
+          <Route path="/" element={<IndexTest />} />
+          <Route path="/login" element={<LoginForm setRole={setRole} />} />  
+          <Route path='/lessons' element={<LessonTable/>} />
+          <Route path="/fields" element={<FieldsTable/>}/>
+          <Route path='/teachers' element={<Teachers/>} />
+          <Route path='/padelInfo' element={<PadelInfo/>}/>
+          <Route path='/tennisInfo' element={<TennisInfo/>}/>
+          <Route path='/trainings' element={<Trainings/>}/>
+        </Routes>
+      </main>
+      <Footer/>
+    </div>
+  );
+};
 
-export default App
+export default App;

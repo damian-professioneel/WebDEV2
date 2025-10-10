@@ -1,0 +1,21 @@
+.form-boxes{
+    margin-left: 20px;
+}
+
+.label-name{
+    margin-right: 5px;
+}
+.forms{
+    margin-bottom: 0.2rem;
+}
+
+
+.send-button:hover{
+    color: #647183;
+    margin: flex;
+}
+
+.teacher-list{
+    margin-top: 1rem;
+    margin-left: 20px;
+}
