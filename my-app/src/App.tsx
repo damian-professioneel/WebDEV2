@@ -11,6 +11,9 @@ import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
 import './FrontendCSS/Footer.css';
 import { useEffect, useState } from "react";
+import Trainings from "./Trainings";
+
+
 const App = () => {
   const [role, setRole] = useState<"admin" | "member" | "teacher" | "">("");
 
@@ -34,6 +37,7 @@ const App = () => {
       <Route path='/lessons' element={<LessonTable/>} />
       <Route path="/fields" element={<FieldsTable/>}/>
       <Route path='/teachers' element={<Teachers/>} />
+      <Route path='/training' element={<Trainings/>} />
       <Route path='/padelInfo' element={<PadelInfo/>}/>
       <Route path='/tennisInfo' element={<TennisInfo/>}/>
     </Routes>

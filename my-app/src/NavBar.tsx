@@ -1,6 +1,5 @@
 import { resolvePath, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 interface NavbarProps {
   role: "admin" | "member" | "teacher" | "";
   setRole: React.Dispatch<React.SetStateAction<"admin" | "member" | "teacher" | "">>;
@@ -27,7 +26,7 @@ const Navbar : React.FC<NavbarProps> = ({ role, setRole }: NavbarProps) =>{
     const links = [
         {label: "Home", path: "/"},
         ...(role === "admin" ? [{ label: "Admin Dashboard", path: "/admin" }] : []),
-        ...(role === "teacher" ? [{ label: "Teacher Page", path: "/teacher" }] : []),
+        ...(role === "teacher" ? [{ label: "Teacher Page", path: "/training" }] : []),
         ...(role === "member" ? [{ label: "Member Page", path: "/member" }] : []),
         { label: "Lessons", path: "/lessons" },
         { label: "Teachers", path: "/teachers" },
