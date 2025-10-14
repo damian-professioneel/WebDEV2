@@ -92,10 +92,26 @@ table {
     background: #00cc1a;
 }
 
+.navbar_container {
+    position: relative;
+}
+
+.nav-buttons, .navbar__container {
+    position: relative;
+}
+
 /* Dropdown container */
 .nav-buttons .dropdown {
     display: inline-block;
-    position: relative;
+
+}
+
+.navbar_item .navbar_right {
+  position: absolute;
+  top: 60px; /* Pas deze waarde aan voor meer ruimte onder de navbar */
+  left: 0;
+  padding-top: 60px;
+  z-index: 1000;
 }
 
 /* Dropdown content (hidden by default) */

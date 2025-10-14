@@ -1,5 +1,7 @@
 import { resolvePath, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+
+
 interface NavbarProps {
   role: "admin" | "member" | "teacher" | "";
   setRole: React.Dispatch<React.SetStateAction<"admin" | "member" | "teacher" | "">>;
@@ -40,7 +42,7 @@ const Navbar : React.FC<NavbarProps> = ({ role, setRole }: NavbarProps) =>{
             <a href="/" id="navbar__logo">Logo</a>
 
             <ul className="navbar__menu">
-                {/* Dynamische links */}
+                
                 {links.map((link) => (
                 <li className="navbar__item" key={link.label}>
                     <button onClick={() => navigate(link.path)} className="navbar__links">
@@ -49,7 +51,7 @@ const Navbar : React.FC<NavbarProps> = ({ role, setRole }: NavbarProps) =>{
                 </li>
                 ))}
 
-                {/* Rechts: Sign In of Dropdown */}
+                
                 <li className="navbar__item navbar__right">
                 {role ? (
                     <div className={`dropdown ${dropdownOpen ? "open" : ""}`}>
