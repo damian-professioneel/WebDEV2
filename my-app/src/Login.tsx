@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import './FrontendCSS/Login.css';
 import { useNavigate } from "react-router-dom";
-
-const Loginarray = [
-    { username: "user1", password: "pass1", role: "member" },
-    { username: "admin2", password: "pass2", role: "admin" },
-    { username: "teacher3", password: "pass3", role: "teacher" }
-];
+import { Loginarray } from './data/users';
 
 interface LoginFormProps {
   setRole: React.Dispatch<React.SetStateAction<"" | "admin" | "member" | "teacher">>;

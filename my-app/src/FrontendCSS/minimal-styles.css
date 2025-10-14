@@ -40,10 +40,14 @@ html, body, #root {
     display: flex;
     list-style: none;
     align-items: center;
+    height: 100%;
 }
 
 .navbar__item {
     margin: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .navbar__links {
@@ -54,10 +58,56 @@ html, body, #root {
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .navbar__links:hover {
     color: #00ff00;
+}
+
+/* Navbar right section for user/login - no additional styles needed since parent uses justify-content: space-between */
+
+/* Dropdown styles for user menu */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown__menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgb(220, 216, 13);
+    border-radius: 4px;
+    padding: 10px;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.947);
+    z-index: 1001;
+}
+
+.dropdown__menu p {
+    color: rgb(0, 0, 0);
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.dropdown__menu button {
+    background: #cc0000;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.dropdown__menu button:hover {
+    background: #aa0000;
 }
 
 .button {
@@ -136,10 +186,7 @@ html, body, #root {
     text-align: center;
 }
 
-#main__img {
-    max-width: 100%;
-    height: auto;
-}
+/* Removed #main__img - not used */
 
 /* Sport Section */
 .sport {
