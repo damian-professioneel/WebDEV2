@@ -17,10 +17,22 @@ h1
 #banenLijst
 {
     margin-top: 2rem;
-    color:red;
+    color:green;
 }
 .banenPrint
 {
     margin-top: 0.3rem;
     margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 30px;
+}
+.verwijderKnop
+{
+    margin-left: 4rem;
+    color: red;
+}
+#knopvooradd
+{
+    color:green;
 }

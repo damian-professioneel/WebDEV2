@@ -29,7 +29,7 @@ export const FieldsTable: React.FC<{}> = () => {
 
     const loadBaan = banenopslag
     .filter(baan => baan.occupied != true)
-    .map(baan => <ul className='banenPrint'>Baan: {baan.baan} - Spelers: {baan.spelers} - Speltype {baan.speltype} <button className="verwijderKnop" onClick={() => deleteBaan(baan)}>Delete</button></ul>
+    .map(baan => <div className='banenPrint'>Baan: {baan.baan} - Spelers: {baan.spelers} - Speltype {baan.speltype} <button className="verwijderKnop" onClick={() => deleteBaan(baan)}>Delete</button></div>
     )
 
     const addBaan = () =>
@@ -94,11 +94,9 @@ export const FieldsTable: React.FC<{}> = () => {
                 <button id="knopvooradd" onClick={() => addBaan()}>Toevoegen</button>
             </form>
 
-            <ul id="banenLijst">
-            </ul>
-            <ul id="banenLijst">
+            <div id="banenLijst">
                 {loadBaan}
-            </ul>
+            </div>
 
         </div>
     )
