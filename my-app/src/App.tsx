@@ -26,25 +26,31 @@ const App = () => {
 
   return (
     <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',  // full viewport height
       width: '100%',
       margin: 0,
       padding: 0,
       overflowX: 'hidden',
-      position: 'relative'
     }}>
       <Navbar role={role} setRole={setRole} />
-    <Routes>
-      <Route path="/" element={<IndexTest />} />
-      <Route path="/login" element={<LoginForm setRole={setRole} />} />   
-      <Route path='/lessons' element={<LessonTable/>} />
-      <Route path="/fields" element={<FieldsTable/>}/>
-      <Route path='/teachers' element={<Teachers/>} />
-      <Route path='/training' element={<Trainings/>} />
-      <Route path='/padelInfo' element={<PadelInfo/>}/>
-      <Route path='/tennisInfo' element={<TennisInfo/>}/>
-    </Routes>
-    <Footer></Footer>
-    </div>    
+
+      <div style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<IndexTest />} />
+          <Route path="/login" element={<LoginForm setRole={setRole} />} />   
+          <Route path='/lessons' element={<LessonTable/>} />
+          <Route path="/fields" element={<FieldsTable/>}/>
+          <Route path='/teachers' element={<Teachers/>} />
+          <Route path='/training' element={<Trainings/>} />
+          <Route path='/padelInfo' element={<PadelInfo/>}/>
+          <Route path='/tennisInfo' element={<TennisInfo/>}/>
+        </Routes>
+      </div>
+
+      <Footer />
+    </div>   
   )
 }
 

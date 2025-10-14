@@ -12,6 +12,7 @@ export const Teachers: React.FC = () => {
 
   const [teachers, setTeachers] = useState<typeof teacherInfo[]>([]);
 
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setTeacherInfo((prev) => ({ ...prev, [name]: value }));
@@ -39,7 +40,6 @@ export const Teachers: React.FC = () => {
 
     setTeachers((prev) => [...prev, teacherInfo]);
 
-    // Clear the form
     setTeacherInfo({
       naam: "",
       achternaam: "",
@@ -132,8 +132,8 @@ export const Teachers: React.FC = () => {
           <ul>
             {teachers.map((teacher, index) => (
               <li key={index}>
-                Naam : {teacher.naam} {teacher.achternaam} - Mail: {teacher.email} – Skill Niveau: {teacher.skillniveau}
-                <button onClick={() => handleDelete(index)} style={{ marginLeft: "10px" }}>
+                Naam : {teacher.naam} {teacher.achternaam} - Mail: {teacher.email} - Skill Niveau: {teacher.skillniveau}
+                <button onClick={() => handleDelete(index)}>
                   Verwijder
                 </button>
               </li>
