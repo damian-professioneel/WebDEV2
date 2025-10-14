@@ -39,6 +39,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({setRole}) => {
     };
 
     return (
+        <div className="login-page">
         <form className="login-container" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <label htmlFor="username">Username</label>
@@ -61,5 +62,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({setRole}) => {
         />
         <button type="submit" id="loginKnop">Login</button>
         </form>
+        </div>
     );
 };

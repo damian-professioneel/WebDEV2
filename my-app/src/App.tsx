@@ -10,6 +10,7 @@ import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
 import './FrontendCSS/Footer.css';
+import './FrontendCSS/Teachers.css';
 import { useEffect, useState } from "react";
 import Trainings from "./Trainings";
 

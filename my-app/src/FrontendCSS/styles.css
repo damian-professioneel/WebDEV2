@@ -63,7 +63,7 @@ table {
 /* Navigation buttons */
 .nav-buttons .nav-buttons-link {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 1rem 5rem;
     font-size: 1rem;
     border-radius: 6px;
     background: #00ff22;
@@ -155,7 +155,7 @@ table {
     background-color: rgba(0, 101, 14, 0.3);
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 1rem 2rem ;
     cursor: pointer;
     border-radius: 4px;
 }
