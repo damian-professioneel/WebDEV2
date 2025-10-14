@@ -36,7 +36,10 @@ const App = () => {
     }}>
       <Navbar role={role} setRole={setRole} />
 
-      <div style={{ flex: 1 }}>
+    <div style={{ 
+            flex: 1, 
+            backgroundColor: '#FAFAFA'  //DIT LOWKEY IN EEN CSS IS BETER. Maar iemand had al css in de div style gemaakt dus uit gemak hier geplaatst.
+        }}>
         <Routes>
           <Route path="/" element={<IndexTest />} />
           <Route path="/login" element={<LoginForm setRole={setRole} />} />   

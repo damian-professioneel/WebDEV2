@@ -39,7 +39,7 @@ const Navbar : React.FC<NavbarProps> = ({ role, setRole }: NavbarProps) =>{
     return (
         <nav className="navbar">
             <div className="navbar__container">
-            <a href="/" id="navbar__logo">Logo</a>
+            <a href="/" id="navbar__logo">Geronimo!</a>
 
             <ul className="navbar__menu">
                 
