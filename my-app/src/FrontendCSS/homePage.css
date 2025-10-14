@@ -26,6 +26,7 @@
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 50px;
+    overflow: visible;
 }
 
 #navbar__logo{
@@ -56,6 +57,7 @@
 
 .navbar__item {
     height: 80px;
+    overflow : visible;
 }
 
 .navbar__links { 
@@ -100,6 +102,8 @@
     color: #0cf518;
     transition: all 0.3s ease;
 }
+
+
 
 
 @media screen and (max-width: 960px){

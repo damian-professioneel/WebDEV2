@@ -30,10 +30,7 @@ function App() {
       overflowX: 'hidden',
       position: 'relative'
     }}>
-      {role === "admin" && <AdminNavbar />}
-      {role === "teacher" && <TeacherNavbar />}
-      {role === "member" && <MemberNavbar />}
-      {!role && <MemberNavbar />}
+      <Navbar role={role} setRole={setRole} />
     <Routes>
       <Route path="/" element={<IndexTest />} />
       <Route path="/login" element={<LoginForm setRole={setRole} />} />   
