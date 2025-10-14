@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
-    margin:0;
-    padding: 0;
+    margin:0px;
+    padding: 0px;
     font-family: 'Alan Sans'; 
 }
 
@@ -212,7 +212,7 @@
     align-items: center;
     justify-self: center;
     margin: 0 auto;
-    height: 65vh;
+    height: 55vh;
     background-color: #FAFAFA; 
     z-index: 1;
     width: 100%;
@@ -234,7 +234,7 @@
 .main__content h2 {
     font-size: 2rem;
     background-color: #1716169d;
-    background-image: linear-gradient(to top, #9E9E90 0%, #43484a 100%);
+    background-image: linear-gradient(to top, #9E9E90 0%, #abb3b6 100%);
     background-size: 100%;
     -webkit-background-clip:text ;
     -moz-background-clip: text;
@@ -318,7 +318,7 @@
 
     .main__content h1{
         font-size: 2.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .main__content h2{
@@ -360,7 +360,7 @@
     display: flex;
     flex-direction: column; 
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .sport h1{
@@ -464,4 +464,20 @@
     .sport__card{
         width: 300px;
     }
+}
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.app-main-content {
+    flex-grow: 1;
 }

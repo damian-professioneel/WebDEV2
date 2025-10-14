@@ -9,12 +9,9 @@ import { TennisInfo } from "./TennisInfo";
 import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
+import './FrontendCSS/Footer.css';
 import { useEffect, useState } from "react";
-import AdminNavbar from "./AdminNavBar";
-import MemberNavbar from "./MemberNavBar";
-import TeacherNavbar from "./TeacherNavBar";
-
-function App() {
+const App = () => {
   const [role, setRole] = useState<"admin" | "member" | "teacher" | "">("");
 
   useEffect(() => {
@@ -44,4 +41,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

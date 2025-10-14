@@ -10,7 +10,7 @@ const AdminNavBar : React.FC = () =>{
         {/* Navigatie bar */}
       <nav className="navbar">
         <div className="navbar__container">
-          <a href="" id="navbar__logo">Logo</a>
+          <a href="/" id="navbar__logo">Geronimo!</a>
           <div className="navbar__toggle" id="mobile-menu">
             <span className="bar"></span>
             <span className="bar"></span>
@@ -21,7 +21,7 @@ const AdminNavBar : React.FC = () =>{
               <button onClick={() => navigate("/")} className="navbar__links">Home</button>
             </li>
             <li className="navbar__item">
-              <button onClick={() => navigate("/lessons")} className="navbar__links">Trainings</button>
+              <button onClick={() => navigate("/trainings")} className="navbar__links">Trainings</button>
             </li>
             <li className="navbar__item">
               <button onClick={() => navigate("/admin")} className="navbar__links">Your Lessons</button>
@@ -30,10 +30,10 @@ const AdminNavBar : React.FC = () =>{
               <button onClick={() => navigate("/teachers")} className="navbar__links">Teachers</button>
             </li>
             <li className="navbar__item">
-              <button onClick={() => navigate("/")} className="navbar__links">Fields</button>
+              <button onClick={() => navigate("/fields")} className="navbar__links">Fields</button>
             </li>
             <li className="navbar__item">
-              <button onClick={() => navigate("/fields")} className="navbar__links">Lessons</button>
+              <button onClick={() => navigate("/lessons")} className="navbar__links">Lessons</button>
             </li>
             <li className="navbar__btn">
               <button className="button" id="signUp" onClick={() => navigate("/login")}>Sign In</button>

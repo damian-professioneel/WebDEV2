@@ -1,0 +1,38 @@
+h1
+{
+
+}
+
+.invoegBoxes
+{
+
+}
+
+.fieldsWrapper
+{
+    margin-left: 1.25rem;
+    color:blue;
+    margin-bottom: 1rem;
+}
+#banenLijst
+{
+    margin-top: 2rem;
+    color:green;
+}
+.banenPrint
+{
+    margin-top: 0.3rem;
+    margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 30px;
+}
+.verwijderKnop
+{
+    margin-left: 4rem;
+    color: red;
+}
+#knopvooradd
+{
+    color:green;
+}
