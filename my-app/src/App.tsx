@@ -6,10 +6,12 @@ import { FieldsTable } from "./Fields";
 import { Teachers } from "./Teachers";
 import { PadelInfo } from "./PadelInfo";
 import { TennisInfo } from "./TennisInfo";
+import  Footer  from "./Footer";
 import Navbar from './NavBar';
 import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
 import './FrontendCSS/Footer.css';
+import './FrontendCSS/Teachers.css';
 import { useEffect, useState } from "react";
 import Trainings from "./Training/Trainings";
 
@@ -24,24 +26,34 @@ const App = () => {
 
   return (
     <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',  // full viewport height
       width: '100%',
       margin: 0,
       padding: 0,
       overflowX: 'hidden',
-      position: 'relative'
     }}>
       <Navbar role={role} setRole={setRole} />
-    <Routes>
-      <Route path="/" element={<IndexTest />} />
-      <Route path="/login" element={<LoginForm setRole={setRole} />} />   
-      <Route path='/lessons' element={<LessonTable/>} />
-      <Route path="/fields" element={<FieldsTable/>}/>
-      <Route path='/teachers' element={<Teachers/>} />
-      <Route path='/training' element={<Trainings/>} />
-      <Route path='/padelInfo' element={<PadelInfo/>}/>
-      <Route path='/tennisInfo' element={<TennisInfo/>}/>
-    </Routes>
-    </div>    
+
+    <div style={{ 
+            flex: 1, 
+            backgroundColor: '#FAFAFA'  //DIT LOWKEY IN EEN CSS IS BETER. Maar iemand had al css in de div style gemaakt dus uit gemak hier geplaatst.
+        }}>
+        <Routes>
+          <Route path="/" element={<IndexTest />} />
+          <Route path="/login" element={<LoginForm setRole={setRole} />} />   
+          <Route path='/lessons' element={<LessonTable/>} />
+          <Route path="/fields" element={<FieldsTable/>}/>
+          <Route path='/teachers' element={<Teachers/>} />
+          <Route path='/training' element={<Trainings/>} />
+          <Route path='/padelInfo' element={<PadelInfo/>}/>
+          <Route path='/tennisInfo' element={<TennisInfo/>}/>
+        </Routes>
+      </div>
+
+      <Footer />
+    </div>   
   )
 }
 

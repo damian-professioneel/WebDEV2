@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Teachers.css"
 
 export const Teachers: React.FC = () => {
   const [teacherInfo, setTeacherInfo] = useState({
@@ -13,9 +12,14 @@ export const Teachers: React.FC = () => {
 
   const [teachers, setTeachers] = useState<typeof teacherInfo[]>([]);
 
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setTeacherInfo((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDelete = (index: number) => {
+    setTeachers((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -30,15 +34,12 @@ export const Teachers: React.FC = () => {
     const phoneNumber = teacherInfo.telefoonnummer;
     const phoneValid = /^06\d{8}$/;
     if (!phoneValid.test(phoneNumber)) {
-    alert("Telefoonnummer moet beginnen met 06 en precies 10 cijfers bevatten zonder spaties.");
-    return;
+      alert("Telefoonnummer moet beginnen met 06 en precies 10 cijfers bevatten zonder spaties.");
+      return;
     }
-
-
 
     setTeachers((prev) => [...prev, teacherInfo]);
 
-    // Clear the form
     setTeacherInfo({
       naam: "",
       achternaam: "",
@@ -108,21 +109,21 @@ export const Teachers: React.FC = () => {
         </div>
 
         <div className="forms">
-        <label className="label-name" htmlFor="skillniveau">Skill niveau</label>
-        <select
+          <label className="label-name" htmlFor="skillniveau">Skill niveau</label>
+          <select
             id="skillniveau"
             name="skillniveau"
             value={teacherInfo.skillniveau}
             onChange={handleChange}
-            >
+          >
             <option value="">Selecteer een niveau</option>
             <option value="Beginner">Beginner</option>
             <option value="Gevorderd">Gevorderd</option>
             <option value="Professioneel">Professioneel</option>
-        </select>
+          </select>
         </div>
 
-        <button className= "send-button" type="submit">Submit</button>
+        <button className="send-button" type="submit">Submit</button>
       </form>
 
       {teachers.length > 0 && (
@@ -131,7 +132,10 @@ export const Teachers: React.FC = () => {
           <ul>
             {teachers.map((teacher, index) => (
               <li key={index}>
-                Naam : {teacher.naam} {teacher.achternaam} - Mail: {teacher.email} – Skill Niveau: {teacher.skillniveau}
+                Naam : {teacher.naam} {teacher.achternaam} - Mail: {teacher.email} - Skill Niveau: {teacher.skillniveau}
+                <button onClick={() => handleDelete(index)}>
+                  Verwijder
+                </button>
               </li>
             ))}
           </ul>
@@ -139,4 +143,4 @@ export const Teachers: React.FC = () => {
       )}
     </div>
   );
-};
+}

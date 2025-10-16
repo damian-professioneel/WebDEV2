@@ -2,12 +2,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: #f0f2f5;
+    margin: 0;
+    background-color: #fafafa;
     font-family: Arial, sans-serif;
 }
+
+app-main-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+}
+
 .login-container {
+    align-items: center;;
+    justify-content: left;
     background: #fff;
+    margin-top: 6rem;
     padding: 2rem 2.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
