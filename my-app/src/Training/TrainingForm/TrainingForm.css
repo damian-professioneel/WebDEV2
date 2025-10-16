@@ -1,0 +1,131 @@
+/* TrainingForm specific styles */
+.training-section {
+    background: white;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.training-section h2 {
+    color: #333;
+    border-bottom: 2px solid #00ff22;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.training-form {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input, .form-group select {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #00ff22;
+    outline: none;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #00ff22;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #00cc1a;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 0 0.25rem;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+/* Form validation styles */
+.training-form input:valid,
+.training-form select:valid {
+    border-color: #28a745;
+}
+
+.training-form input:invalid:not(:placeholder-shown),
+.training-form select:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+}
+
+/* Focus states for accessibility */
+input:focus,
+select:focus {
+    box-shadow: 0 0 0 3px rgba(0, 255, 34, 0.2);
+}
+
+button:focus {
+    box-shadow: 0 0 0 3px rgba(0, 255, 34, 0.3);
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+    }
+}
+
+.btn-primary:hover {
+    background: #00cc1a;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 0 0.25rem;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}

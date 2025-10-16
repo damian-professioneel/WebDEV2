@@ -11,7 +11,7 @@ import './FrontendCSS/minimal-styles.css';
 import './FrontendCSS/homePage.css';
 import './FrontendCSS/Footer.css';
 import { useEffect, useState } from "react";
-import Trainings from "./Trainings";
+import Trainings from "./Training/Trainings";
 
 
 const App = () => {
